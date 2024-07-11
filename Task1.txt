@@ -1,0 +1,23 @@
+--select command
+select first_name , last_name , age
+from Customers;
+
+select *
+from Customers;
+
+select distinct item
+from Orders;
+
+--create command
+CREATE TABLE Student
+(
+  Name varchar(5),
+  Age varchar(5),
+  Father Name varchar(5),
+);
+
+--DROP Command
+DROP TABLE Orders;
+
+--Alter Command
+Alter Table Student ADD Mother Name Varchar(60);
