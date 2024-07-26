@@ -1,0 +1,51 @@
+-- creating tables
+CREATE TABLE Employees (
+     EmployeeID int,
+     EmployeeName varchar(255),
+     DepartmentID int
+);
+
+CREATE TABLE Departments (
+     DepartmentID int,
+     DepartmentName varchar(255)
+);
+
+--Inserting values
+INSERT INTO Employees (EmployeeID, EmployeeName, DepartmentID)
+VALUES (1, 'John Doe', 1),
+       (2, 'Jane Smith', 2),
+       (3, 'Micheal Johnson', 1);
+
+INSERT INTO Departments (DepartmentID,DepartmentName)
+VALUES (1, 'HR'),
+       (2, 'Finance');
+       
+--Inner join Query
+SELECT Employees.EmployeeName, Departments.DepartmentName
+FROM Employees
+INNER JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID; 
+
+--Left Join Query
+SELECT Employees.EmployeeName, Departments.DepartmentName
+FROM Employees
+LEFT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+
+--Right Join Query
+SELECT Employees.EmployeeName, Departments.DepartmentName
+FROM Employees
+RIGHT JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+
+--Full Join Query
+SELECT Employees.EmployeeName, Departments.DepartmentName
+FROM Employees
+FULL JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+
+--Cross Join Query
+SELECT Employees.EmployeeName, Departments.DepartmentName
+FROM Employees
+CROSS JOIN Departments;
+
+--Self Join Query
+SELECT A.EmployeeName AS EMPLOYEE1, B.EmployeeName AS EMPLOYEE2
+FROM Employees A,Employees B
+WHERE A.DepartmentID = B.DepartmentID AND A.EmployeeID <> B.EmployeeID;
