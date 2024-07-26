@@ -1,0 +1,28 @@
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Quantity INT,
+    Price DECIMAL(10, 2),
+    SaleDate DATE
+);
+
+INSERT INTO Sales (SaleID, ProductName, Quantity, Price, SaleDate) VALUES
+(1, 'Laptop', 2, 999.99, '2024-07-01'),
+(2, 'Smartphone', 5, 499.99, '2024-07-02'),
+(3, 'Tablet', 3, 299.99, '2024-07-03'),
+(4, 'Monitor', 1, 199.99, '2024-07-04'),
+(5, 'Keyboard', 10, 49.99, '2024-07-05');
+
+SELECT SUM(Quantity) AS TotalQuantity FROM Sales;
+
+--AVG()
+SELECT AVG(Price) AS AveragePrice FROM Sales;
+
+--COUNT()
+SELECT COUNT(*) AS NumberOfSales FROM Sales;
+
+--MAX()
+SELECT MAX(Price) AS HighestPrice FROM Sales;
+
+--MIN()
+SELECT MIN(Price) AS LowestPrice FROM Sales;
