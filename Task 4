@@ -1,0 +1,10 @@
+CREATE TABLE Employees (
+    EmployeeID INT NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    HireDate DATE DEFAULT CURRENT_DATE,
+    PRIMARY KEY (EmployeeID)
+);
+INSERT INTO Employees (FirstName, LastName, Email)
+VALUES ('John', 'Doe', 'john.doe@example.com');
