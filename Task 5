@@ -1,0 +1,69 @@
+CREATE TABLE Employee (
+    EmployeeID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Department VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    DOB DATE,
+    Gender VARCHAR(10)
+);
+
+INSERT INTO Employee (EmployeeID, Name, Department, Salary, DOB, Gender) VALUES
+(1, 'John Doe', 'IT', 8500.00, '1980-05-15', 'Male'),
+(2, 'Jane Smith', 'HR', 9500.00, '1970-09-12', 'Female'),
+(3, 'Michael Brown', 'Finance', 11000.00, '1965-04-23', 'Male'),
+(4, 'Emily Davis', 'IT', 10500.00, '1982-02-28', 'Female'),
+(5, 'David Wilson', 'Marketing', 7000.00, '1968-11-14', 'Male'),
+(6, 'Susan Miller', 'HR', 12000.00, '1963-07-21', 'Female'),
+(7, 'James Taylor', 'Finance', 11500.00, '1975-03-30', 'Male'),
+(8, 'Robert Johnson', 'IT', 9500.00, '1985-10-10', 'Male'),
+(9, 'Maria Garcia', 'Marketing', 8800.00, '1961-01-19', 'Female'),
+(10, 'Joe Martin', 'HR', 13000.00, '1990-12-05', 'Male');
+
+1. SQL Query to Find the Second Highest Salary of Employee
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+2. SQL Query to Find Max Salary from Each Department
+SELECT Department, MAX(Salary) AS MaxSalary
+FROM Employee
+GROUP BY Department;
+
+3. Write SQL Query to Display the Current Date
+SELECT CURRENT_DATE;
+
+4. Write an SQL Query to Check Whether the Date Passed to Query is the Date of the Given Format or Not
+SELECT CASE 
+    WHEN TO_DATE('2024-08-20', 'YYYY-MM-DD') IS NOT NULL THEN 'Valid Date'
+    ELSE 'Invalid Date'
+END AS DateCheck;
+
+5. Write an SQL Query to Print the Name of the Distinct Employee Whose DOB is Between 01/01/1960 to 31/12/1975
+SELECT DISTINCT Name
+FROM Employee
+WHERE DOB BETWEEN '1960-01-01' AND '1975-12-31';
+
+6. Write an SQL Query to Find the Number of Employees According to Gender Whose DOB is Between 01/01/1960 to 31/12/1975
+SELECT Gender, COUNT(*) AS NumberOfEmployees
+FROM Employee
+WHERE DOB BETWEEN '1960-01-01' AND '1975-12-31'
+GROUP BY Gender;
+
+7. Write an SQL Query to Find an Employee Whose Salary is Equal to or Greater Than 10000
+SELECT Name
+FROM Employee
+WHERE Salary >= 10000;
+
+8. Write an SQL Query to Find the Name of an Employee Whose Name Starts with ‘M’
+SELECT Name
+FROM Employee
+WHERE Name LIKE 'M%';
+
+9. Find All Employee Records Containing the Word "Joe", Regardless of Case
+SELECT *
+FROM Employee
+WHERE LOWER(Name) LIKE '%joe%';
+
+10. Write an SQL Query to Find the Year from Date
+SELECT EXTRACT(YEAR FROM DateColumn) AS Year
+FROM TableName;
