@@ -1,0 +1,25 @@
+CREATE TABLE Customers (
+Customer_ID INT PRIMARY KEY AUTO_INCREMENT, Name VARCHAR(100),
+Email VARCHAR(100),
+Join Date DATE
+);
+CREATE TABLE Products (
+-> );
+Product_ID INT PRIMARY KEY AUTO_INCREMENT, Product Name VARCHAR(100),
+Category VARCHAR(50),
+Price DECIMAL(10, 2)
+);
+CREATE TABLE Orders (
+Order_ID INT PRIMARY KEY AUTO_INCREMENT, Customer_ID INT,
+Order_Date DATETIME,
+Total_Amount DECIMAL(10, 2)
+);
+CREATE TABLE Order_Items (
+Order_Item_ID INT PRIMARY KEY AUTO_INCREMENT
+Order_ID INT,
+Product_ID INT,
+Quantity INT,
+Item Price DÉCIMAL(10, 2),
+FOREIGN KEY (Order_ID) REFERENCES Orders (Order_ID),
+FOREIGN KEY (Product_ID) REFERENCES Products (Product_ID)
+);
